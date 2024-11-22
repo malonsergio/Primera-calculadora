@@ -41,11 +41,22 @@ public class Calc {
 		JButton btnSuma = new JButton("Suma");
 		btnSuma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String numStr1;
+				String numStr2;
+				
 				try {
-					int a = Integer.parseInt(JOptionPane.showInputDialog("Introduce número 1: "));
-					int b = Integer.parseInt(JOptionPane.showInputDialog("Introduce número 2: "));
+					numStr1 = JOptionPane.showInputDialog("Introduce número 1: ");
+					if(numStr1 != null && !numStr1.isEmpty())
+					{
+						numStr2 = JOptionPane.showInputDialog("Introduce número 2: ");
+						if(numStr2 != null && !numStr2.isEmpty())
+						{
+							int a = Integer.parseInt(numStr1);
+							int b = Integer.parseInt(numStr2);
+							lblSuma.setText("La suma es: " + (a+b));
+						}
+					}
 
-					lblSuma.setText("La suma es: " + (a+b));
 				} catch(Exception ex) {
 					JOptionPane.showMessageDialog(null, "Syntax error");
 				}
